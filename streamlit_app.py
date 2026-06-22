@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 st.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbKcvidA1YRv5OqD5LWELk1rEQMjqYnQWfJGJ_ewtk1u2cnPdHPlF2rd2b&s=10')
