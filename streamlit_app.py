@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 st.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbKcvidA1YRv5OqD5LWELk1rEQMjqYnQWfJGJ_ewtk1u2cnPdHPlF2rd2b&s=10')
@@ -15,7 +14,9 @@ name_on_order = st.text_input("Name on Smoothie")
 st.write("The name on your smoothie will be", name_on_order)
 
 
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
+
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
